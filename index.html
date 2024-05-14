@@ -1,72 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="index.css">
-	<title><D>DCoin</D></title>
-	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
+    
+    <div class="comtainer">
+        <form id="tg">
+            <div class="form-group">
+                <label class="form-label">Name</label>
+                <input type="text" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="text" name="email" class="form-control">
+            </div>
 
-<div class="DC_containers">
-<div class="skvad">
-	<div class="div_dlya_raspolozhenia">
-	<div class="skvad_image">
-		<img id="skvad_image" src="clicker.jpg" alt=".">
-	</div>
-	<div class="skvad_name">
-		<p>Название вашего сквада</p>
-	</div>
-	<div class="skvad_donation">
-		<p>💰 3246,489</p>
-	</div>
-	</div>
-	<div class="skvad_user_quantity">
-		<p>👤 65k</p>
-	</div>
-</div> 
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script>
+        const TOKEN = "6614663642:AAFrwsJiLTkDupbYfEhpgq2r753mVUCz3gY";
+        const CHAT_ID = "-1002115537261";
+        const URI_API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`;
 
+        document.getElementById('tg').addEventListener('submit', function(e) {
+            e.preventDefault();
 
-<div class="score">
-	<div class="click_score">
-		<span id="clicker_span"><p id="clickCount">0</p></span>
-	</div>
-</div>
+            let message = `<b>Заявка на вывод!<b>\n`;
+            console.log(message)
+        })
 
-<div class="clicker">
-	<img id="clickBtn" src="clicker.jpg" alt=".">
-</div>
+        axios.post(URI_API, {
+            chat_id: CHAT_ID,
+            parse_mode: 'html',
+            text: message
+        })
+    </script>
 
-<form id="tg">
-	<input id="elem1" type="text" name="quantity" placeholder="">
-	<button type="submit">Отправить</button>
-	<div id="str"></div>
-</form>
-
-<div class="container1">
-	<ul class="menu">
-		<li>
-			<img src="http://dummyimage.com/40x40/" alt=".">
-		</li>
-  		<li onclick="back_button()" id="boost_icon"> 
-  			<a href="boost.html">
-  				<img id="boost_png" src="shovel.png" alt=".">
-  			</a>
-  		</li>
-  		<li id="test918">
-  			<img src="http://dummyimage.com/40x40/" alt=".">
-  		</li>
-  		<li>
-  			<img src="http://dummyimage.com/40x40/" alt=".">
-  		</li> 
-	</ul>
-</div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-<script src="script.js"></script>
-	
 </body>
 </html>
